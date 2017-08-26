@@ -36,6 +36,7 @@ int main()
 
 void PrintIntro()
 {
+	BCGame.Reset();
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
 	std::cout << std::endl;
 	std::cout << "          }   {         ___ " << std::endl;
@@ -53,7 +54,6 @@ void PrintIntro()
 // plays a single game to completion
 void PlayGame()
 {
-	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
 
 	// loop asking for guesses while the game
@@ -106,7 +106,7 @@ FText GetValidGuess()
 
 bool AskToPlayAgain()
 {
-	std::cout << "Do you want to play again with the same hidden word (y/n)? ";
+	std::cout << "Do you want to play again with a different word (y/n)? ";
 	FText Response = "";
 	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
